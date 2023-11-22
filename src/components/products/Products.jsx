@@ -12,7 +12,7 @@ export const Products = () => {
         </p>
       </div>
       <img
-        src="/public/product-img.png"
+        src="./public/product-img.png"
         alt=""
         className="w-full md:w-1/2 object-cover rounded-2xl"
       />

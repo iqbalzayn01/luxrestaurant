@@ -14,7 +14,7 @@ export const Services = () => {
       <div className="flex flex-wrap items-start gap-10">
         {/* Card 1 */}
         <div className="md:flex-1 flex flex-col items-center text-center gap-10">
-          <img src="/public/service1-img.png" alt="" className="rounded-2xl" />
+          <img src="./public/service1-img.png" alt="" className="rounded-2xl" />
           <h3 className="text-xl">
             Private Dining: An Intimate Culinary Affair
           </h3>
@@ -26,7 +26,7 @@ export const Services = () => {
         </div>
         {/* Card 2 */}
         <div className="md:flex-1 flex flex-col items-center text-center gap-10">
-          <img src="/public/service2-img.png" alt="" className="rounded-2xl" />
+          <img src="./public/service2-img.png" alt="" className="rounded-2xl" />
           <h3 className="text-xl">Event Hosting: Celebrate in Style</h3>
           <p>
             Host your special occasions with us and celebrate in style. Our team
@@ -36,7 +36,7 @@ export const Services = () => {
         </div>
         {/* Card 3 */}
         <div className="md:flex-1 flex flex-col items-center text-center gap-10">
-          <img src="/public/service3-img.png" alt="" className="rounded-2xl" />
+          <img src="./public/service3-img.png" alt="" className="rounded-2xl" />
           <h3 className="text-xl">
             Personalized Experiences: Tailored to Perfection
           </h3>
