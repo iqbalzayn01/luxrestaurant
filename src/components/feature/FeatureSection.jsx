@@ -16,14 +16,14 @@ export const FeatureSection = () => {
         <div className="flex flex-wrap  items-start gap-10">
           <div className="flex-1">
             <figure className="w-fit bg-white shadow-xl rounded-3xl mb-5 p-5">
-              <img src="./public/icon-discover.svg" alt="" />
+              <img src="/design/icon-journey.svg" alt="" />
             </figure>
             <h4 className="font-bold tracking-wide mb-5">Discover More</h4>
             <p>Indulge in a culinary journey like no other at LuxRestaurant.</p>
           </div>
           <div className="flex-1">
             <figure className="w-fit bg-white shadow-xl rounded-3xl mb-5 p-5">
-              <img src="./public/icon-journey.svg" alt="" />
+              <img src="/design/icon-journey.svg" alt="" />
             </figure>
             <h4 className="font-bold tracking-wider mb-5">Discover More</h4>
             <p>Indulge in a culinary journey like no other at LuxRestaurant.</p>

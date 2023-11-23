@@ -17,7 +17,7 @@
 
 /* Hero */
 .bg-hero {
-    background-image: url("/public/hero-img.png");
+    background-image: url("/public/content/hero-img.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

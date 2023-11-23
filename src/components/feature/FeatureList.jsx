@@ -5,7 +5,7 @@ export const FeatureList = () => {
         {/* Card 1 */}
         <div className="md:flex-1 flex flex-col items-center text-center gap-10">
           <img
-            src="./public/featurelist1-img.png"
+            src="/content/featurelist1-img.png"
             alt=""
             className="rounded-2xl"
           />
@@ -20,7 +20,7 @@ export const FeatureList = () => {
         {/* Card 2 */}
         <div className="md:flex-1 flex flex-col items-center text-center gap-10">
           <img
-            src="./public/featurelist2-img.png"
+            src="/content/featurelist2-img.png"
             alt=""
             className="rounded-2xl"
           />
@@ -33,7 +33,7 @@ export const FeatureList = () => {
         {/* Card 3 */}
         <div className="md:flex-1 flex flex-col items-center text-center gap-10">
           <img
-            src="./public/featurelist3-img.png"
+            src="/content/featurelist3-img.png"
             alt=""
             className="rounded-2xl"
           />
