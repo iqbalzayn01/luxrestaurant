@@ -47,7 +47,6 @@ export const Footer = () => {
               name="email"
               id="email"
               className="bg-primary outline-none border border-black rounded-md px-4 py-2"
-              value=""
               placeholder="Enter your email"
             />
             <button type="submit" className="btn-cta">
