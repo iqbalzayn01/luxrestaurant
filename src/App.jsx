@@ -1,10 +1,13 @@
-import { Header } from "./components/header/Header";
-import { Hero } from "./components/hero/Hero";
-import { FeatureSection } from "./components/feature/FeatureSection";
-import { Services } from "./components/services/Services";
-import { Products } from "./components/products/Products";
-import { About } from "./components/about/About";
-import { FeatureList } from "./components/feature/FeatureList";
+import { Header } from "./components/homepage/Header";
+import { Hero } from "./components/homepage/Hero";
+import { FeatureSection } from "./components/homepage/FeatureSection";
+import { Services } from "./components/homepage/Services";
+import { Products } from "./components/homepage/Products";
+import { About } from "./components/homepage/About";
+import { FeatureList } from "./components/homepage/FeatureList";
+import { Membership } from "./components/homepage/Membership";
+import { Contact } from "./components/homepage/Contact";
+import { Footer } from "./components/homepage/Footer";
 
 export default function App() {
   return (
@@ -16,6 +19,9 @@ export default function App() {
       <Products />
       <About />
       <FeatureList />
+      <Membership />
+      <Contact />
+      <Footer />
     </>
   );
 }
