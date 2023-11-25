@@ -1,6 +1,6 @@
 export const Contact = () => {
   return (
-    <section className="w-full flex flex-wrap items-start justify-between gap-20 mx-auto px-5 py-40">
+    <section className="w-full flex flex-wrap items-start justify-between gap-20 mx-auto px-5 lg:px-40 mb-20">
       <div>
         <p>Luxury</p>
         <h2 className="text-[40px] tracking-wider">Contact Information</h2>

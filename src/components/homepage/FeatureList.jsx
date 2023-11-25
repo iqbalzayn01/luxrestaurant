@@ -1,6 +1,6 @@
 export const FeatureList = () => {
   return (
-    <section className="w-full flex flex-col items-center justify-between gap-3 mx-auto px-5 py-40">
+    <section className="w-full flex flex-col items-center justify-between gap-3 mx-auto px-5 lg:px-40 mb-20">
       <div className="flex flex-wrap items-start gap-10">
         {/* Card 1 */}
         <div className="md:flex-1 flex flex-col items-center text-center gap-10">

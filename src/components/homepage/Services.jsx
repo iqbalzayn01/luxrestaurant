@@ -1,11 +1,11 @@
 export const Services = () => {
   return (
-    <section className="w-full flex flex-col items-center justify-between gap-3 mx-auto px-5 py-40">
+    <section className="w-full flex flex-col items-center justify-between gap-3 mx-auto px-5 lg:px-40 mb-20">
       <p className="text-center">Exquisite</p>
       <h2 className="w-full lg:w-5/12 text-[40px] text-center tracking-wider">
         Unforgettable Experiences Tailored to Your Desires
       </h2>
-      <p className="w-1/2 text-center mb-10">
+      <p className="w-full md:w-1/2 text-center mb-10">
         At LuxRestaurant, we go above and beyond to provide exclusive services
         that cater to the discerning diner. From private dining experience to
         personalized events, we ensure that every moment is tailored to your

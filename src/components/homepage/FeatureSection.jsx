@@ -1,6 +1,6 @@
 export const FeatureSection = () => {
   return (
-    <section className="w-full flex flex-wrap items-start justify-between gap-3 mx-auto px-5 py-40">
+    <section className="w-full flex flex-wrap items-start justify-between gap-3 mx-auto px-5 lg:px-40 mb-20">
       <div className="flex-1">
         <p>Exquisite</p>
         <h2 className="text-[40px] tracking-wider">

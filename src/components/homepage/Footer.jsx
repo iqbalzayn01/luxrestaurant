@@ -1,43 +1,32 @@
+import { useState } from "react";
+import { Links } from "./Header";
+
 export const Footer = () => {
+  const [btnClicked, setBtnClicked] = useState(false);
+
+  const handlerBtn = () => {
+    setBtnClicked((prevClicked) => !prevClicked);
+  };
+
   return (
     <>
-      <section className="w-full flex flex-wrap items-start justify-between gap-10 mx-auto px-5 py-20">
-        <div className="">
+      <section className="w-full flex flex-col md:flex-row items-start justify-between gap-10 mx-auto px-5 lg:px-40 mb-20">
+        <div className="w-full">
           <h2 className="text-[40px] font-black mb-2">LuxRestaurant</h2>
-          <ul className="flex items-center gap-10">
-            <li>
-              <a
-                href=""
-                className=" font-normal hover:font-medium tracking-wider"
-              >
-                Discover
-              </a>
-            </li>
-            <li>
-              <a
-                href=""
-                className=" font-normal hover:font-medium tracking-wider"
-              >
-                Menu
-              </a>
-            </li>
-            <li>
-              <a
-                href=""
-                className=" font-normal hover:font-medium tracking-wider"
-              >
-                Reservations
-              </a>
-            </li>
-            <li>
-              <a
-                href=""
-                className=" font-normal hover:font-medium tracking-wider"
-              >
-                More
-              </a>
-            </li>
-          </ul>
+          <div
+            className={`relative overflow-hidden border border-black rounded-md md:border-0 transition-[height] duration-1000 ease-in-out ${
+              btnClicked ? "h-80" : "h-[75px]"
+            }`}
+          >
+            <button
+              type="button"
+              onClick={handlerBtn}
+              className="block md:hidden font-semibold px-5 py-6"
+            >
+              Links
+            </button>
+            <Links className="absolute md:relative flex flex-col md:flex-row gap-10 px-5 md:px-0" />
+          </div>
         </div>
         <div className="flex flex-col gap-5">
           <h4 className="text-xl font-semibold tracking-wider">Subscribe</h4>
@@ -59,13 +48,13 @@ export const Footer = () => {
       <footer className="mx-auto px-5 pb-20">
         <hr className="w-full border border-black my-10" />
         <div className="flex flex-wrap justify-between gap-10">
-          <ul className="flex items-center gap-10">
+          <ul className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-10">
             <li>
               <a
                 href=""
                 className=" font-normal hover:font-medium tracking-wider"
               >
-                Discover
+                Privacy Policy
               </a>
             </li>
             <li>
@@ -73,7 +62,7 @@ export const Footer = () => {
                 href=""
                 className=" font-normal hover:font-medium tracking-wider"
               >
-                Menu
+                Terms of Service
               </a>
             </li>
             <li>
@@ -81,15 +70,7 @@ export const Footer = () => {
                 href=""
                 className=" font-normal hover:font-medium tracking-wider"
               >
-                Reservations
-              </a>
-            </li>
-            <li>
-              <a
-                href=""
-                className=" font-normal hover:font-medium tracking-wider"
-              >
-                More
+                Cookie Settings
               </a>
             </li>
           </ul>

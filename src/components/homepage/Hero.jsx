@@ -1,6 +1,6 @@
 export const Hero = () => {
   return (
-    <section className="bg-hero flex flex-col gap-10 text-white mx-auto px-5 py-40">
+    <section className="bg-hero flex flex-col gap-10 text-white mx-auto px-5 py-40 lg:px-40 mb-20">
       <h1 className="w-full md:w-1/2 text-5xl font-bold tracking-wider">
         Experience the Epitome of Luxury Dining
       </h1>
