@@ -21,7 +21,7 @@ export const Footer = () => {
             <button
               type="button"
               onClick={handlerBtn}
-              className="block md:hidden font-semibold px-5 py-6"
+              className="w-full block md:hidden text-start font-semibold px-5 py-6"
             >
               Links
             </button>

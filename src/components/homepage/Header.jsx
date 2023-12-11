@@ -10,11 +10,11 @@ export const Header = () => {
     <header className="w-full mx-auto px-5 lg:px-40">
       <nav
         className={`relative flex w-full items-center justify-between py-10 transition-all duration-1000 ease-in-out ${
-          menuMobile ? "h-[500px]" : "h-[80px]"
+          menuMobile ? "pb-96" : ""
         }`}
       >
         {/* Logo */}
-        <a href="#" className="font-black z-30">
+        <a href="#" className="font-black z-30 outline-none">
           LuxRestaurant
         </a>
 

@@ -1,10 +1,10 @@
 export const FeatureSection = () => {
   return (
     <section className="w-full flex flex-wrap items-start justify-between gap-3 mx-auto px-5 lg:px-40 mb-20">
-      <div className="flex-1">
+      <div className="md:flex-1">
         <p>Exquisite</p>
         <h2 className="text-[40px] tracking-wider">
-          Indulge in the Extraordinary: Welcome to LuxRestaurant
+          Indulge in the Extraordinary
         </h2>
       </div>
       <div className="flex-1 flex flex-col gap-10">

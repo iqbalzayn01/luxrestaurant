@@ -1,7 +1,7 @@
 export const Membership = () => {
   return (
     <section className="w-full flex flex-wrap items-start justify-between gap-10 mx-auto px-5 lg:px-40 mb-20">
-      <div className="flex-1">
+      <div className="md:flex-1">
         <h2 className="text-[40px] tracking-wider">
           Unlock Exclusive VIP Membership Benefits
         </h2>
