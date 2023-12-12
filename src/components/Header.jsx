@@ -44,9 +44,9 @@ export const Header = () => {
         <Links className="hidden md:flex items-center gap-10 text-center" />
 
         {/* Button CTA */}
-        <a href="#" className="hidden md:block btn-cta shadow-xl">
+        <Link to="/reservation" className="hidden md:block btn-cta shadow-xl">
           Reserve
-        </a>
+        </Link>
       </nav>
     </header>
   );
