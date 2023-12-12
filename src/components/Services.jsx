@@ -1,6 +1,6 @@
 export const Services = () => {
   return (
-    <section className="w-full flex flex-col items-center justify-between gap-3 mx-auto px-5 lg:px-40 mb-20">
+    <section className="w-full flex flex-col items-center justify-between gap-3 mx-auto px-5 lg:px-40 mb-32">
       <p className="text-center">Exquisite</p>
       <h2 className="w-full lg:w-5/12 text-[40px] text-center tracking-wider">
         Unforgettable Experiences Tailored to Your Desires

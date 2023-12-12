@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [menuMobile, setMenuMobile] = useState(false);
@@ -14,9 +15,9 @@ export const Header = () => {
         }`}
       >
         {/* Logo */}
-        <a href="#" className="font-black z-30 outline-none">
+        <Link to="/" className="font-black z-30 outline-none">
           LuxRestaurant
-        </a>
+        </Link>
 
         {/* Links: Mobile */}
         <button
@@ -43,7 +44,7 @@ export const Header = () => {
         <Links className="hidden md:flex items-center gap-10 text-center" />
 
         {/* Button CTA */}
-        <a href="#" className="hidden md:block btn-cta">
+        <a href="#" className="hidden md:block btn-cta shadow-xl">
           Reserve
         </a>
       </nav>
@@ -55,22 +56,25 @@ export const Links = ({ className }) => {
   return (
     <ul className={`${className}`}>
       <li>
-        <a href="" className=" font-normal hover:font-medium tracking-wider">
+        <Link to="/" className="font-normal hover:font-medium tracking-wider">
           Discover
-        </a>
+        </Link>
       </li>
       <li>
-        <a href="" className=" font-normal hover:font-medium tracking-wider">
+        <Link to="/" className="font-normal hover:font-medium tracking-wider">
           Menu
-        </a>
+        </Link>
       </li>
       <li>
-        <a href="" className=" font-normal hover:font-medium tracking-wider">
-          Reservations
-        </a>
+        <Link
+          to="/reservation"
+          className="font-normal hover:font-medium tracking-wider"
+        >
+          Reservation
+        </Link>
       </li>
       <li>
-        <a href="" className=" font-normal hover:font-medium tracking-wider">
+        <a href="" className="font-normal hover:font-medium tracking-wider">
           More
         </a>
       </li>

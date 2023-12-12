@@ -1,6 +1,6 @@
 export const About = () => {
   return (
-    <section className="w-full flex flex-wrap items-start justify-between gap-3 mx-auto px-5 lg:px-40 mb-20">
+    <section className="w-full flex flex-wrap items-start justify-between gap-3 mx-auto px-5 lg:px-40 mb-32">
       <div className="md:flex-1">
         <h2 className="text-[40px] tracking-wider">
           Crafting Culinary Excellence
@@ -13,7 +13,7 @@ export const About = () => {
           Every dish we serve is a masterpiece, meticulously crafted to delight
           your senses.
         </p>
-        <button className="w-fit btn-cta">Learn More</button>
+        <button className="w-fit btn-cta shadow-xl">Learn More</button>
       </div>
     </section>
   );

@@ -1,27 +1,14 @@
-import { Header } from "./components/homepage/Header";
-import { Hero } from "./components/homepage/Hero";
-import { FeatureSection } from "./components/homepage/FeatureSection";
-import { Services } from "./components/homepage/Services";
-import { Products } from "./components/homepage/Products";
-import { About } from "./components/homepage/About";
-import { FeatureList } from "./components/homepage/FeatureList";
-import { Membership } from "./components/homepage/Membership";
-import { Contact } from "./components/homepage/Contact";
-import { Footer } from "./components/homepage/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Reservation from "./pages/Reservation";
 
 export default function App() {
   return (
-    <>
-      <Header />
-      <Hero />
-      <FeatureSection />
-      <Services />
-      <Products />
-      <About />
-      <FeatureList />
-      <Membership />
-      <Contact />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/reservation" element={<Reservation />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

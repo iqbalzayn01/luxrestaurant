@@ -10,7 +10,7 @@ export const Footer = () => {
 
   return (
     <>
-      <section className="w-full flex flex-col md:flex-row items-start justify-between gap-10 mx-auto px-5 lg:px-40 mb-20">
+      <section className="w-full flex flex-col md:flex-row items-start justify-between gap-10 mx-auto px-5 lg:px-40 mb-32">
         <div className="w-full">
           <h2 className="text-[40px] font-black mb-2">LuxRestaurant</h2>
           <div
@@ -38,14 +38,14 @@ export const Footer = () => {
               className="bg-primary outline-none border border-black rounded-md px-4 py-2"
               placeholder="Enter your email"
             />
-            <button type="submit" className="btn-cta">
+            <button type="submit" className="btn-cta shadow-xl">
               Subscribe
             </button>
           </form>
           <p>By subscribing, you agree to our Privacy Policy</p>
         </div>
       </section>
-      <footer className="mx-auto px-5 pb-20">
+      <footer className="mx-auto px-5 pb-20 md:px-40">
         <hr className="w-full border border-black my-10" />
         <div className="flex flex-wrap justify-between gap-10">
           <ul className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-10">
