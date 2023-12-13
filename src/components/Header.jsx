@@ -2,13 +2,13 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export const Header = () => {
+export const Header = ({ className }) => {
   const [menuMobile, setMenuMobile] = useState(false);
   const handlerMenuMobile = () => {
     setMenuMobile((prevMenu) => !prevMenu);
   };
   return (
-    <header className="w-full mx-auto px-5 lg:px-40">
+    <header className={`w-full mx-auto px-5 lg:px-40 ${className}`}>
       <nav
         className={`relative flex w-full items-center justify-between py-10 transition-all duration-1000 ease-in-out ${
           menuMobile ? "pb-96" : ""
@@ -50,6 +50,10 @@ export const Header = () => {
       </nav>
     </header>
   );
+};
+
+Header.propTypes = {
+  className: PropTypes.string.isRequired,
 };
 
 export const Links = ({ className }) => {

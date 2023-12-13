@@ -12,6 +12,18 @@ export const ReserveForm = ({ className }) => {
     time: "",
   });
 
+  const handleReset = () => {
+    setReserveData({
+      name: "",
+      email: "",
+      partySize: "",
+      month: "",
+      day: "",
+      year: "",
+      time: "",
+    });
+  };
+
   const handleChange = (e) => {
     setReserveData({ ...reserveData, [e.target.name]: e.target.value });
   };
@@ -24,21 +36,37 @@ export const ReserveForm = ({ className }) => {
     setReserveData({ ...reserveData, time: e });
   };
 
+  const generatePartySizeOptions = () => {
+    const partySizeOptions = [1, 2, 3, 4, "5+"];
+    return partySizeOptions.map((value) => (
+      <button
+        key={value}
+        type="button"
+        className={`w-full bg-gray-300 hover:bg-gray-500 hover:text-white px-3 py-2 rounded-lg ${
+          reserveData.partySize === value ? "bg-gray-500 text-white" : ""
+        }`}
+        onClick={() => handlePartySizeClick(value)}
+      >
+        {value}
+      </button>
+    ));
+  };
+
   const generateTimeOptions = () => {
     const startTime = 12; // Mulai dari jam 12 PM
     const endTime = 23; // Hingga jam 11 PM
-    const options = [];
+    const timeOptions = [];
 
     for (let i = startTime; i <= endTime; i++) {
       const time12HourFormat = i % 12 === 0 ? 12 : i % 12;
       const timeSuffix = i < 12 ? "AM" : "PM";
       const timeValue = `${i.toString().padStart(2, "0")}:00`;
 
-      options.push(
+      timeOptions.push(
         <div
           key={timeValue}
-          className={`w-full text-center bg-gray-300 hover:bg-gray-400 px-3 py-2 rounded-lg ${
-            reserveData.time === timeValue ? "selected" : ""
+          className={`w-full text-center bg-gray-300 hover:bg-gray-500 hover:text-white px-3 py-2 rounded-lg ${
+            reserveData.time === timeValue ? "bg-gray-500 text-white" : ""
           }`}
           onClick={() => handleTimeClick(timeValue)}
         >
@@ -47,7 +75,7 @@ export const ReserveForm = ({ className }) => {
       );
     }
 
-    return options;
+    return timeOptions;
   };
 
   const handleSubmit = (e) => {
@@ -113,18 +141,7 @@ export const ReserveForm = ({ className }) => {
               Party Size
             </label>
             <div className="flex items-center gap-5">
-              {[1, 2, 3, 4, "5+"].map((value) => (
-                <button
-                  type="button"
-                  key={value}
-                  className={`w-full bg-gray-300 hover:bg-gray-400  px-3 py-2 rounded-lg${
-                    reserveData.partySize === value ? "selected" : ""
-                  }`}
-                  onClick={() => handlePartySizeClick(value)}
-                >
-                  {value}
-                </button>
-              ))}
+              {generatePartySizeOptions()}
             </div>
           </div>
           <div className="date flex gap-5">
@@ -187,15 +204,16 @@ export const ReserveForm = ({ className }) => {
               type="reset"
               id="reset"
               name="reset"
+              onClick={handleReset}
               placeholder="Reset"
-              className="btn-cta w-full"
+              className="w-full hover:bg-black hover:text-white border border-black rounded-md cursor-pointer"
             />
             <input
               type="submit"
               id="submit"
               name="submit"
               placeholder="Submit"
-              className="btn-cta w-full"
+              className="btn-cta w-full shadow-xl cursor-pointer"
             />
           </div>
         </form>
