@@ -1,14 +1,13 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+// import axios from "axios";
 
 export const ReserveForm = ({ className }) => {
   const [reserveData, setReserveData] = useState({
     name: "",
     email: "",
-    partySize: "",
-    month: "",
-    day: "",
-    year: "",
+    partySize: 1,
+    date: "",
     time: "",
   });
 
@@ -17,70 +16,43 @@ export const ReserveForm = ({ className }) => {
       name: "",
       email: "",
       partySize: "",
-      month: "",
-      day: "",
-      year: "",
+      date: "",
       time: "",
     });
   };
 
   const handleChange = (e) => {
-    setReserveData({ ...reserveData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setReserveData((reserveData) => ({
+      ...reserveData,
+      [name]: value,
+    }));
   };
 
-  const handlePartySizeClick = (e) => {
-    setReserveData({ ...reserveData, partySize: e });
-  };
-
-  const handleTimeClick = (e) => {
-    setReserveData({ ...reserveData, time: e });
-  };
-
-  const generatePartySizeOptions = () => {
-    const partySizeOptions = [1, 2, 3, 4, "5+"];
-    return partySizeOptions.map((value) => (
-      <button
-        key={value}
-        type="button"
-        className={`w-full bg-gray-300 hover:bg-gray-500 hover:text-white px-3 py-2 rounded-lg ${
-          reserveData.partySize === value ? "bg-gray-500 text-white" : ""
-        }`}
-        onClick={() => handlePartySizeClick(value)}
-      >
-        {value}
-      </button>
-    ));
-  };
-
-  const generateTimeOptions = () => {
-    const startTime = 12; // Mulai dari jam 12 PM
-    const endTime = 23; // Hingga jam 11 PM
-    const timeOptions = [];
-
-    for (let i = startTime; i <= endTime; i++) {
-      const time12HourFormat = i % 12 === 0 ? 12 : i % 12;
-      const timeSuffix = i < 12 ? "AM" : "PM";
-      const timeValue = `${i.toString().padStart(2, "0")}:00`;
-
-      timeOptions.push(
-        <div
-          key={timeValue}
-          className={`w-full text-center bg-gray-300 hover:bg-gray-500 hover:text-white px-3 py-2 rounded-lg ${
-            reserveData.time === timeValue ? "bg-gray-500 text-white" : ""
-          }`}
-          onClick={() => handleTimeClick(timeValue)}
-        >
-          {`${time12HourFormat} ${timeSuffix}`}
-        </div>
-      );
-    }
-
-    return timeOptions;
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Reservation details:", reserveData);
+
+    try {
+      const response = await fetch(
+        "http://localhost:9000/api/v1/reservations",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(reserveData),
+        }
+      );
+
+      if (response.ok) {
+        console.log("Reservation created successfully");
+        handleReset();
+      } else {
+        console.error("Failed to create reservation");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -140,64 +112,42 @@ export const ReserveForm = ({ className }) => {
             >
               Party Size
             </label>
-            <div className="flex items-center gap-5">
-              {generatePartySizeOptions()}
-            </div>
+            <input
+              type="number"
+              id="partySize"
+              name="partySize"
+              value={reserveData.partySize}
+              onChange={handleChange}
+              className="w-full text-sm font-medium border border-gray-400 outline-none px-3 py-2 rounded-md"
+              required
+            />
           </div>
-          <div className="date flex gap-5">
-            <div>
-              <label htmlFor="month" className="block text-sm font-medium mb-1">
-                Month
-              </label>
-              <input
-                type="text"
-                id="month"
-                name="month"
-                value={reserveData.month}
-                onChange={handleChange}
-                placeholder="MM"
-                maxLength="2"
-                className="w-full text-sm font-medium border border-gray-400 outline-none px-3 py-2 rounded-md"
-              />
-            </div>
-            <div>
-              <label htmlFor="day" className="block text-sm font-medium mb-1">
-                Day
-              </label>
-              <input
-                type="text"
-                id="day"
-                name="day"
-                value={reserveData.day}
-                onChange={handleChange}
-                placeholder="DD"
-                maxLength="2"
-                className="w-full text-sm font-medium border border-gray-400 outline-none px-3 py-2 rounded-md"
-              />
-            </div>
-            <div>
-              <label htmlFor="year" className="block text-sm font-medium mb-1">
-                Year
-              </label>
-              <input
-                type="text"
-                id="year"
-                name="year"
-                value={reserveData.year}
-                onChange={handleChange}
-                placeholder="YYYY"
-                maxLength="4"
-                className="w-full text-sm font-medium border border-gray-400 outline-none px-3 py-2 rounded-md"
-              />
-            </div>
+          <div className="date">
+            <label htmlFor="month" className="block text-sm font-medium mb-1">
+              Date
+            </label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value={reserveData.date}
+              onChange={handleChange}
+              className="w-full text-sm font-medium border border-gray-400 outline-none px-3 py-2 rounded-md"
+              required
+            />
           </div>
           <div className="time">
             <label htmlFor="time" className="block text-sm font-medium mb-1">
               Time
             </label>
-            <div className="grid grid-cols-4 gap-2">
-              {generateTimeOptions()}
-            </div>
+            <input
+              type="time"
+              name="time"
+              value={reserveData.time}
+              onChange={handleChange}
+              className="w-full text-center border border-gray-400 outline-none px-3 py-2 rounded-md"
+              required
+            />
           </div>
           <div className="btn-reserve-wrap flex justify-center gap-5">
             <input
