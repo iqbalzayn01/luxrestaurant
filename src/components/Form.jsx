@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-// import axios from "axios";
 
 export const ReserveForm = ({ className }) => {
+  const apiKey = import.meta.env.VITE_API_KEY;
+
   const [reserveData, setReserveData] = useState({
     name: "",
     email: "",
@@ -33,16 +34,13 @@ export const ReserveForm = ({ className }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(
-        "http://localhost:9000/api/v1/reservations",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(reserveData),
-        }
-      );
+      const response = await fetch(apiKey, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reserveData),
+      });
 
       if (response.ok) {
         console.log("Reservation created successfully");
