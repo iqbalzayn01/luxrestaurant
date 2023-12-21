@@ -7,7 +7,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/reservation" element={<Reservation />}></Route>
+        <Route path="reservation" element={<Reservation />}></Route>
       </Routes>
     </BrowserRouter>
   );
