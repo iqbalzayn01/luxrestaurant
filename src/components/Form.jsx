@@ -1,5 +1,34 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
+import Modal from "react-modal";
+
+Modal.setAppElement("#root");
+
+const PopUp = ({ isOpen, onClose, className }) => {
+  return (
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      contentLabel="Reservation Success"
+      className={`${className}`}
+      overlayClassName="modal-overlay bg fixed inset-0 z-50 flex items-center justify-center"
+    >
+      <div className="modal-content bg-white p-24 border border-gray-400 shadow-xl rounded-md">
+        <h2 className="text-2xl font-bold mb-4">Reservation Successful!</h2>
+        <p className="text-gray-700 mb-4">Thank you for your reservation.</p>
+        <button onClick={onClose} className="btn-cta px-4 py-2 rounded-md">
+          Close
+        </button>
+      </div>
+    </Modal>
+  );
+};
+
+PopUp.propTypes = {
+  className: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
 
 export const ReserveForm = ({ className }) => {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -30,6 +59,12 @@ export const ReserveForm = ({ className }) => {
     }));
   };
 
+  const [isPopupOpen, setPopupOpen] = useState(false);
+
+  const handlePopupClose = () => {
+    setPopupOpen(false);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -43,6 +78,7 @@ export const ReserveForm = ({ className }) => {
       });
 
       if (response.ok) {
+        setPopupOpen(true);
         console.log("Reservation created successfully");
         handleReset();
       } else {
@@ -54,7 +90,7 @@ export const ReserveForm = ({ className }) => {
   };
 
   return (
-    <section className={`w-full mx-auto px-5 lg:px-40 ${className}`}>
+    <section className={`relative w-full mx-auto px-5 lg:px-40 ${className}`}>
       <div className="flex items-center shadow-2xl rounded-2xl">
         <figure className="hidden md:block w-full h-screen">
           <img
@@ -164,6 +200,7 @@ export const ReserveForm = ({ className }) => {
               className="btn-cta w-full shadow-xl cursor-pointer"
             />
           </div>
+          <PopUp isOpen={isPopupOpen} onClose={handlePopupClose} />
         </form>
       </div>
     </section>
@@ -172,4 +209,6 @@ export const ReserveForm = ({ className }) => {
 
 ReserveForm.propTypes = {
   className: PropTypes.string.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };

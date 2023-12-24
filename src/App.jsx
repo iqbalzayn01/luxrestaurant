@@ -4,7 +4,7 @@ import Reservation from "./pages/Reservation";
 
 export default function App() {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="reservation" element={<Reservation />}></Route>
